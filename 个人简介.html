@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张晓玲 - 企业业绩增长陪跑总教练 | 华讯企业创始人</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --dark-gold: #D4AF37;
+            --khaki: #F0E68C;
+            --dark-khaki: #BDB76B;
+            --text-dark: #333333;
+            --text-light: #f8f8f8;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--khaki), var(--dark-khaki));
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部横幅 */
+        .hero {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--text-dark);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="rgba(255,255,255,0.1)"/><rect width="50" height="50" x="50" y="50" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        /* 主要内容区 */
+        .section {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: var(--dark-gold);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
+        }
+        
+        /* 网格布局 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-title {
+            color: var(--dark-gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        /* 标签云 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--text-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* 联系区 */
+        .contact {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .qrcode {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        /* 课程图片区 */
+        .course-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部横幅区 -->
+    <section class="hero">
+        <div class="hero-content container">
+           <img src="111.jpg" alt="张晓玲老师" class="hero-image">
+            <h1>张晓玲</h1>
+            <h2>相由心生，业由人成</h2>
+            <p>二十年企业业绩增长陪跑总教练</p>
+            <p>广州华讯企业管理顾问有限公司创始人 | 华讯荟发起人 | 《做销售就要会沟通》作者</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <!-- 专业背景区 -->
+        <section class="section">
+            <h2 class="section-title">专业背景</h2>
+            <div class="content">
+                <p>张晓玲老师是广东财经大学2005届社会工作专业本科毕业生，主攻心理学方向。拥有20年培训行业经验，累计服务超过3万+企业家，是企业业绩增长陪跑总教练，批量培养销冠的专家。</p>
+                <p>作为畅销书《做销售就要会沟通》的作者，张老师曾担任原聚成股份广州公司总经理，带领团队荣获集团业绩冠军。2020年创立华讯企业管理，2021年创建大湾区企业家社群，致力于帮助企业家实现业绩增长与家庭事业平衡。</p>
+            </div>
+        </section>
+        
+        <!-- 课程图片展示 -->
+        <img src="file:///D:/个人简介网页/111.jpg" alt="张晓玲老师培训课程" class="course-image">
+        
+        <!-- 核心能力区 -->
+        <section class="section">
+            <h2 class="section-title">核心能力</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-bullseye"></i>专业领域</h3>
+                    <ul>
+                        <li>战略、品牌、营销、管理一体化解决方案</li>
+                        <li>企业业绩增长系统设计与实施</li>
+                        <li>销售团队打造与销冠培养</li>
+                        <li>企业家领导力提升与家庭事业平衡</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-graduation-cap"></i>特色课程</h3>
+                    <h4>"相由心生"销售训练营</h4>
+                    <ul>
+                        <li>面相破冰技术：快速建立客户信任</li>
+                        <li>面相解码：通过三停/五官分析客户需求</li>
+                        <li>分型沟通法：理性/感性成交策略</li>
+                        <li>精准增值服务设计：提升订单价值</li>
+                        <li>实战训练与教练辅导</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 资源网络区 -->
+        <section class="section">
+            <h2 class="section-title">资源网络</h2>
+            <div class="content">
+                <p>张晓玲老师拥有广泛的商业资源网络，包括珠三角3万+企业家资源池和培训界顶级师资网络，以及跨行业优质服务资源：</p>
+                <div class="tag-cloud">
+                    <span class="tag">法律服务</span>
+                    <span class="tag">医疗服务</span>
+                    <span class="tag">金融服务</span>
+                    <span class="tag">教育咨询</span>
+                    <span class="tag">生活服务</span>
+                    <span class="tag">商业空间设计</span>
+                    <span class="tag">财富管理</span>
+                    <span class="tag">心理咨询</span>
+                    <span class="tag">名校资源</span>
+                    <span class="tag">企业培训</span>
+                </div>
+                <p style="margin-top: 20px;">每一项资源都经过严格考察验证，确保为客户提供最优质的服务对接。</p>
+            </div>
+        </section>
+        
+        <!-- 华讯荟社群介绍 -->
+        <section class="section">
+            <h2 class="section-title">华讯荟企业家社群</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-users"></i>社群宗旨</h3>
+                    <p>以教育为本，智慧赋能，资源整合为核心宗旨，致力于帮助企业家成为所在行业基业长青的领导品牌。</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-star"></i>社群价值</h3>
+                    <ul>
+                        <li>战略指导：提供企业发展全方位解决方案</li>
+                        <li>资源对接：优质商业资源精准匹配</li>
+                        <li>成长陪伴：从企业经营到家庭幸福的全方位陪伴</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 个人成就区 -->
+        <section class="section">
+            <h2 class="section-title">个人成就</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-building"></i>服务企业</h3>
+                    <p style="font-size: 2.5rem; font-weight: bold; color: var(--dark-gold); text-align: center;">30,000+</p>
+                    <p style="text-align: center;">累计服务企业数量</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-trophy"></i>培养销冠</h3>
+                    <p style="font-size: 2.5rem; font-weight: bold; color: var(--dark-gold); text-align: center;">500+</p>
+                    <p style="text-align: center;">批量培养销冠人数</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-book"></i>著作影响</h3>
+                    <p style="font-size: 2.5rem; font-weight: bold; color: var(--dark-gold); text-align: center;">50,000+</p>
+                    <p style="text-align: center;">《做销售就要会沟通》销量</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 底部联系区 -->
+        <section class="section contact">
+            <h2 class="section-title">联系张晓玲老师</h2>
+            <p>广州华讯企业管理顾问有限公司</p>
+            <p>电话: 138-XXXX-XXXX</p>
+            <p>邮箱: zhangxiaoling@huaxun.com</p>
+            
+            <div class="qrcode">
+                <p>视频号二维码</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-style: italic;">
+                "桃李不言满庭芳，弦歌百年今又始，祝母校四十华诞圆满成功，积历史之厚蕴，宏图更展，再谱华章。"
+            </p>
+        </section>
+    </div>
+</body>
+</html>
